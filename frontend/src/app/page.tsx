@@ -1,207 +1,212 @@
 import { FadeIn } from "@/components/animations";
-import { ArrowRight, Coffee, Navigation } from "lucide-react";
+import { PetCard } from "@/components/PetCard";
+import { ArrowRight, Search, Heart, Shield, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative overflow-x-hidden selection:bg-roast selection:text-sand">
+    <main className="min-h-screen relative overflow-x-hidden selection:bg-[#F97316] selection:text-white bg-[#FFF7ED]">
       {/* Navigation */}
-      <nav className="fixed top-0 inset-x-0 z-50 glass py-4 px-6 md:px-12 flex justify-between items-center mix-blend-difference text-sand">
-        <div className="font-heading font-semibold text-2xl tracking-widest lowercase">Aura</div>
-        <div className="hidden md:flex gap-8 text-sm uppercase tracking-widest font-mono">
-          <Link href="#store" className="hover:opacity-70 transition-opacity">Store</Link>
-          <Link href="#story" className="hover:opacity-70 transition-opacity">Process</Link>
-          <Link href="#spaces" className="hover:opacity-70 transition-opacity">Spaces</Link>
+      <nav className="fixed top-4 left-4 right-4 z-50 bg-white/80 backdrop-blur-md rounded-2xl shadow-clay-sm py-4 px-6 md:px-8 flex justify-between items-center text-[#9A3412] max-w-7xl mx-auto">
+        <div className="flex items-center gap-2">
+          <Heart className="w-8 h-8 text-[#F97316] fill-[#F97316]" />
+          <div className="font-heading font-bold text-2xl tracking-wide">Pawsitive</div>
         </div>
-        <button className="h-10 px-5 bg-sand text-ink text-sm font-mono uppercase tracking-wider rounded-full hover:bg-white transition-colors">
-          Shop Beans
+        <div className="hidden md:flex gap-8 font-semibold text-[15px]">
+          <Link href="#adopt" className="hover:text-[#F97316] transition-colors">Adopt</Link>
+          <Link href="#process" className="hover:text-[#F97316] transition-colors">How it works</Link>
+          <Link href="#about" className="hover:text-[#F97316] transition-colors">Our Mission</Link>
+        </div>
+        <button className="h-11 px-6 bg-[#2563EB] text-white font-semibold rounded-xl shadow-clay-sm hover:shadow-clay-sm-hover hover:-translate-y-0.5 transition-all text-[15px]">
+          Login
         </button>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex flex-col justify-end px-6 md:px-12 pb-12 md:pb-24 pt-32">
-        <div className="absolute inset-0 max-w-7xl mx-auto flex items-center justify-center -z-10 px-6 opacity-80 mix-blend-multiply md:mix-blend-normal object-cover">
-          <div className="w-full lg:w-3/5 aspect-[4/5] lg:aspect-[16/9] relative overflow-hidden saturate-50 contrast-125 mb-12">
-            <Image
-              src="/hero.png"
-              alt="Artisanal Espresso Pull"
-              fill
-              priority
-              className="object-cover animate-pulse" // Wait, I'll use raw CSS animation internally or standard object-cover. Let's rely on standard image loading
-              style={{ filter: "sepia(20%)" }}
-            />
-          </div>
+      <section className="relative pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex-1 text-center lg:text-left z-10">
+          <FadeIn>
+            <div className="inline-flex items-center gap-2 bg-orange-100 text-[#F97316] px-4 py-2 rounded-full font-bold text-sm mb-6 border border-orange-200">
+              <Sparkles className="w-4 h-4" />
+              <span>Over 2,000 happy families created</span>
+            </div>
+            <h1 className="font-heading text-5xl md:text-6xl lg:text-[80px] font-bold text-[#9A3412] leading-[1.1] mb-6">
+              Find your new <br />
+              <span className="text-[#F97316]">best friend.</span>
+            </h1>
+            <p className="font-body text-lg md:text-xl text-[#9A3412]/80 font-medium mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              We connect compassionate people with wonderful pets. Every adoption makes a difference in a furry life.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <button className="w-full sm:w-auto px-8 py-4 bg-[#F97316] text-white font-bold rounded-2xl shadow-clay hover:shadow-clay-hover hover:-translate-y-1 transition-all text-lg flex items-center justify-center gap-2">
+                Browse Pets <ArrowRight className="w-5 h-5" />
+              </button>
+              <button className="w-full sm:w-auto px-8 py-4 bg-white text-[#9A3412] font-bold rounded-2xl shadow-clay-sm hover:shadow-clay-sm-hover hover:-translate-y-1 transition-all text-lg flex items-center justify-center gap-2 border-2 border-transparent hover:border-orange-100">
+                <Search className="w-5 h-5 text-[#F97316]" /> Take the Quiz
+              </button>
+            </div>
+          </FadeIn>
         </div>
 
-        <div className="z-10 mix-blend-exclusion text-sand max-w-6xl w-full mx-auto flex flex-col md:flex-row justify-between items-end gap-12">
-          <div className="max-w-2xl">
-            <h1 className="font-heading text-6xl sm:text-7xl md:text-9xl tracking-tighter leading-[0.85] text-balance">
-              Extraction <br /> As Form.
-            </h1>
+        <div className="flex-1 relative w-full max-w-lg lg:max-w-none aspect-square">
+          <FadeIn delay={0.2} className="w-full h-full relative">
+            {/* Blob background for hero image */}
+            <div className="absolute inset-0 bg-[#FB923C] rounded-[40px] rotate-3 opacity-20 scale-105"></div>
+            <div className="absolute inset-0 bg-[#10B981] rounded-[40px] -rotate-3 opacity-10 scale-105"></div>
+            <div className="relative w-full h-full rounded-[40px] overflow-hidden shadow-clay-hover border-8 border-white">
+              <Image 
+                src="/pet_hero.png" 
+                alt="Happy puppy and kitten" 
+                fill 
+                className="object-cover"
+                priority
+              />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Stats/Trust Bar */}
+      <section className="px-4 py-8 max-w-7xl mx-auto">
+        <div className="bg-white rounded-[32px] p-8 md:p-12 shadow-clay-sm flex flex-col md:flex-row justify-around items-center gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-100">
+          <div className="w-full md:w-1/3 pt-4 md:pt-0">
+            <h3 className="font-heading text-4xl font-bold text-[#F97316] mb-2">24h</h3>
+            <p className="font-body text-[#9A3412]/70 font-semibold">Average response time</p>
           </div>
-          <div className="max-w-xs font-mono text-sm leading-relaxed uppercase tracking-widest text-sand/80">
-            Aura Roasters — Serving the ritual of absolute precision. We source, roast, and extract beautiful coffees in Portland, OR.
+          <div className="w-full md:w-1/3 pt-8 md:pt-0">
+            <h3 className="font-heading text-4xl font-bold text-[#10B981] mb-2">100%</h3>
+            <p className="font-body text-[#9A3412]/70 font-semibold">Vet checked & vaccinated</p>
+          </div>
+          <div className="w-full md:w-1/3 pt-8 md:pt-0">
+            <h3 className="font-heading text-4xl font-bold text-[#2563EB] mb-2">30 Days</h3>
+            <p className="font-body text-[#9A3412]/70 font-semibold">Post-adoption support</p>
           </div>
         </div>
       </section>
 
-      {/* Marquee Divider */}
-      <div className="w-full bg-ink text-sand py-4 md:py-6 overflow-hidden border-y border-ink/10 flex whitespace-nowrap">
-        <div className="animate-marquee font-mono uppercase tracking-widest text-xs lg:text-sm flex gap-12 lg:gap-24">
-          <span>Single Origin Excellence</span>
-          <span>•</span>
-          <span>Zero Compromise Roasting</span>
-          <span>•</span>
-          <span>Sourced Ethically</span>
-          <span>•</span>
-          <span>Single Origin Excellence</span>
-          <span>•</span>
-          <span>Zero Compromise Roasting</span>
-          <span>•</span>
-          <span>Sourced Ethically</span>
-          <span>•</span>
+      {/* Pet Listings */}
+      <section id="adopt" className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+          <FadeIn>
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-[#9A3412] mb-4">
+              Waiting for you
+            </h2>
+            <p className="font-body text-lg text-[#9A3412]/70 font-medium max-w-md">
+              Meet our newest arrivals. These lovely companions are ready to find their forever homes.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.2} className="mt-6 md:mt-0">
+            <button className="text-[#2563EB] font-bold text-lg hover:underline flex items-center gap-2">
+              View all pets <ArrowRight className="w-5 h-5" />
+            </button>
+          </FadeIn>
         </div>
-      </div>
 
-      {/* Section: The Process */}
-      <section id="story" className="py-24 md:py-32 lg:py-48 px-6 md:px-12 max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
-        <FadeIn className="lg:col-span-4 lg:col-start-2">
-          <h2 className="font-mono text-roast uppercase tracking-widest text-xs mb-8">01. The Craft</h2>
-          <h3 className="font-heading text-4xl sm:text-5xl lg:text-7xl leading-none mb-8">
-            Measured <br /> Intensity.
-          </h3>
-          <p className="font-body text-lg text-ink/70 leading-relaxed mb-12 text-balance">
-            Every batch is roasted to highlight its origin. No blends, no dark roast masking flavor. We embrace the naked, vibrant profile of the cherry. Our brutalist approach to extraction ensures what enters the cup is pure resonance.
-          </p>
-          <Link href="#store" className="inline-flex items-center gap-4 text-ink font-mono uppercase text-sm tracking-widest border-b border-ink/20 pb-2 hover:border-accent transition-colors group">
-            <span className="group-hover:text-accent transition-colors">Our Ethos</span>
-            <ArrowRight className="w-4 h-4 group-hover:text-accent transition-colors group-hover:translate-x-1" />
-          </Link>
-        </FadeIn>
-        
-        <div className="lg:col-span-6 relative aspect-[3/4] lg:aspect-square w-full">
-          {/* We'll use a standard image tag wrapped in a FadeIn for effect */}
-          <FadeIn delay={0.2} className="w-full h-full relative">
-            <Image 
-              src="/interior.png" 
-              alt="Aura Cafe Interior" 
-              fill 
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-[2s] ease-in-out" 
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <FadeIn delay={0.1}>
+            <PetCard 
+              id="1"
+              name="Charlie"
+              breed="Golden Retriever Mix"
+              age="3 Months"
+              location="Portland Shelter"
+              imageUrl="/pet_dog_1.png"
+              isNew={true}
+            />
+          </FadeIn>
+          <FadeIn delay={0.2}>
+             <PetCard 
+              id="2"
+              name="Luna"
+              breed="Ragdoll"
+              age="1 Year"
+              location="Foster Home"
+              imageUrl="/pet_cat_1.png"
+            />
+          </FadeIn>
+          <FadeIn delay={0.3}>
+             <PetCard 
+              id="3"
+              name="Cooper"
+              breed="French Bulldog"
+              age="6 Months"
+              location="Downtown Clinic"
+              imageUrl="/pet_dog_2.png"
+              isNew={true}
             />
           </FadeIn>
         </div>
       </section>
 
-      {/* Section: Offerings */}
-      <section id="store" className="py-24 md:py-32 px-6 md:px-12 bg-roast text-sand">
-        <div className="max-w-screen-2xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-24 relative z-10">
-            <FadeIn>
-              <h2 className="font-heading text-5xl lg:text-8xl leading-none select-none">Current <br/> Harvest</h2>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <p className="font-mono uppercase tracking-widest text-xs max-w-sm mt-8 md:mt-0 text-sand/60">
-                Freshly roasted batches available for shipping every Tuesday. Quantities strictly limited.
-              </p>
-            </FadeIn>
+      {/* Trust & Process Section */}
+      <section id="process" className="py-20 px-4 md:px-8 bg-orange-50 mt-12 rounded-t-[60px]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <Shield className="w-12 h-12 text-[#10B981] mx-auto mb-6" />
+            <h2 className="font-heading text-4xl font-bold text-[#9A3412] mb-4">
+              Safe & Simple Adoption
+            </h2>
+            <p className="font-body text-lg text-[#9A3412]/70 font-medium">
+              We've created a transparent process to ensure the best match for both you and the pet.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-12 relative z-20">
-            <FadeIn delay={0.1}>
-              <div className="group cursor-pointer">
-                <div className="aspect-[4/5] relative bg-ink overflow-hidden mb-6">
-                  <Image src="/beans.png" alt="Ethiopia Yirgacheffe" fill className="object-cover scale-100 group-hover:scale-105 transition-transform duration-1000 opacity-60 mix-blend-luminosity" />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-sand/20 z-10" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {/* Connecting line for desktop */}
+            <div className="hidden md:block absolute top-[60px] left-[15%] right-[15%] h-1 bg-orange-200 z-0 border-dashed border-2"></div>
+            
+            {[
+              { step: "01", title: "Find a Match", desc: "Browse our verified listings and find a pet that fits your lifestyle." },
+              { step: "02", title: "Meet & Greet", desc: "Schedule a video call or an in-person visit to ensure it's a perfect match." },
+              { step: "03", title: "Bring Them Home", desc: "Complete the adoption paperwork and welcome your new family member." }
+            ].map((item, i) => (
+              <FadeIn key={i} delay={i * 0.2} className="relative z-10">
+                <div className="bg-white p-8 rounded-[32px] shadow-clay-sm text-center h-full border-2 border-transparent hover:border-orange-100 transition-colors">
+                  <div className="w-16 h-16 bg-[#F97316] text-white rounded-2xl flex items-center justify-center font-heading text-2xl font-bold mx-auto mb-6 shadow-md rotate-3">
+                    {item.step}
+                  </div>
+                  <h3 className="font-heading text-2xl font-bold text-[#9A3412] mb-3">{item.title}</h3>
+                  <p className="font-body text-[#9A3412]/70 font-medium">{item.desc}</p>
                 </div>
-                <div className="flex justify-between items-baseline mb-2">
-                  <h3 className="font-heading text-2xl">Ethiopia Yirgacheffe</h3>
-                  <span className="font-mono text-sm uppercase">$24</span>
-                </div>
-                <p className="font-body text-sand/70 text-sm">Jasmine, Bergamot, Honey, Washed.</p>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.3}>
-              <div className="group cursor-pointer mt-0 lg:mt-24">
-                <div className="aspect-[4/5] relative bg-ink overflow-hidden mb-6">
-                  <Image src="/beans.png" alt="Colombia Finca El Paraiso" fill className="object-cover scale-100 group-hover:scale-105 transition-transform duration-1000 opacity-70 sepia-[.3]" />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-sand/20 z-10" />
-                </div>
-                <div className="flex justify-between items-baseline mb-2">
-                  <h3 className="font-heading text-2xl">Colombia El Paraiso</h3>
-                  <span className="font-mono text-sm uppercase">$32</span>
-                </div>
-                <p className="font-body text-sand/70 text-sm">Lychee, Strawberry, Rose, Thermal Shock.</p>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.5}>
-              <div className="group cursor-pointer">
-                <div className="aspect-[4/5] relative bg-ink overflow-hidden mb-6">
-                  <Image src="/beans.png" alt="Kenya Nyeri" fill className="object-cover scale-100 group-hover:scale-105 transition-transform duration-1000 opacity-50 sepia-[.1]" />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-sand/20 z-10" />
-                </div>
-                <div className="flex justify-between items-baseline mb-2">
-                  <h3 className="font-heading text-2xl">Kenya Nyeri Peaberry</h3>
-                  <span className="font-mono text-sm uppercase">$26</span>
-                </div>
-                <p className="font-body text-sand/70 text-sm">Blackberry, Tomato, Syrupy, Double Washed.</p>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-ink text-sand pt-24 md:pt-48 pb-12 px-6 md:px-12 flex flex-col relative overflow-hidden">
-        <div className="max-w-screen-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 mb-24 lg:mb-48 relative z-10">
-          <div className="md:col-span-4">
-            <h4 className="font-heading text-2xl mb-6">Location</h4>
-            <div className="font-mono text-sm leading-relaxed text-sand/60">
-              1102 SE Burnside St,<br />
-              Portland, OR 97214<br />
-              <br />
-              Mon–Sun<br />
-              7am — 4pm
+      <footer className="bg-white pt-20 pb-10 px-4 md:px-8 border-t border-orange-100">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-2 mb-6">
+              <Heart className="w-8 h-8 text-[#F97316] fill-[#F97316]" />
+              <div className="font-heading font-bold text-2xl tracking-wide text-[#9A3412]">Pawsitive</div>
             </div>
+            <p className="font-body text-[#9A3412]/70 font-medium max-w-sm">
+              Making pet adoption joyful, safe, and transparent. We're on a mission to end pet homelessness.
+            </p>
           </div>
-          <div className="md:col-span-8 flex flex-col md:items-end text-left md:text-right">
-            <h4 className="font-heading text-4xl mb-8">Join the inner circle.</h4>
-            <form className="flex w-full md:max-w-md group border-b border-sand/30 pb-2 focus-within:border-sand transition-colors">
-              <input 
-                type="email" 
-                placeholder="ENTER EMAIL" 
-                className="bg-transparent outline-none font-mono text-sm tracking-widest uppercase w-full placeholder:text-sand/30"
-              />
-              <button className="px-4 hover:translate-x-2 transition-transform opacity-60 hover:opacity-100">
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </form>
+          <div>
+            <h4 className="font-heading font-bold text-lg text-[#9A3412] mb-4">Quick Links</h4>
+            <ul className="space-y-3 font-body font-medium text-[#9A3412]/70">
+              <li><Link href="#" className="hover:text-[#F97316] transition-colors">Search Pets</Link></li>
+              <li><Link href="#" className="hover:text-[#F97316] transition-colors">Adoption Process</Link></li>
+              <li><Link href="#" className="hover:text-[#F97316] transition-colors">Shelter Login</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-heading font-bold text-lg text-[#9A3412] mb-4">Contact</h4>
+            <ul className="space-y-3 font-body font-medium text-[#9A3412]/70">
+              <li>hello@pawsitive.com</li>
+              <li>1 (800) PAWS-R-US</li>
+            </ul>
           </div>
         </div>
-
-        <div className="relative z-10 flex flex-col items-center mt-auto">
-          <div className="font-heading text-[15vw] leading-none tracking-tight overflow-hidden text-[#C05C36] mix-blend-screen opacity-90 select-none pointer-events-none mb-12">
-            A·U·R·A
-          </div>
-          <div className="w-full flex justify-between items-center border-t border-sand/10 pt-6 font-mono text-xs text-sand/40">
-            <p>&copy; {new Date().getFullYear()} Aura Roasters. All rights reserved.</p>
-            <p className="hover:text-sand cursor-pointer transition-colors">Instagram / Journal</p>
-          </div>
+        <div className="max-w-7xl mx-auto pt-8 border-t border-orange-100 text-center font-body text-sm font-medium text-[#9A3412]/50">
+          &copy; {new Date().getFullYear()} Pawsitive Pet Adoption. All rights reserved.
         </div>
       </footer>
-      
-      {/* Background grain applied globally via CSS, but custom animation classes defined below */}
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes marquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-          animation: marquee 20s linear infinite;
-        }
-      `}} />
     </main>
   );
 }

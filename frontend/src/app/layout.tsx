@@ -1,31 +1,24 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Outfit, Space_Mono } from "next/font/google";
+import { Fredoka, Nunito } from "next/font/google";
 import "./globals.css";
 
-const headingFont = Cormorant_Garamond({
+const headingFont = Fredoka({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const bodyFont = Outfit({
+const bodyFont = Nunito({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  display: "swap",
-});
-
-const monoFont = Space_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Aura Coffee Roasters | The Science & Art of Coffee",
-  description: "A specialty coffee roaster focusing on exquisite single origins and minimal extraction. Roasted daily in Portland.",
+  title: "PetAdoptionMVP | Find Your New Best Friend",
+  description: "A friendly, trustworthy, and playful pet adoption platform. We help you find the perfect companion.",
 };
 
 export default function RootLayout({
@@ -36,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${bodyFont.variable} ${headingFont.variable} ${monoFont.variable} antialiased`}
+        className={`${bodyFont.variable} ${headingFont.variable} antialiased`}
       >
         {children}
       </body>

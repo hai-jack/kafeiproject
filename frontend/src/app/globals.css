@@ -1,24 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-sand: #f4efeb;
-  --color-ink: #1a1816;
-  --color-roast: #4a3831;
-  --color-accent: #c05c36;
-  --color-crema: #e3d2c1;
+  --color-primary: #F97316;
+  --color-secondary: #FB923C;
+  --color-cta: #2563EB;
+  --color-background: #FFF7ED;
+  --color-text: #9A3412;
 
-  --font-heading: "Cormorant Garamond", serif;
-  --font-body: "Outfit", sans-serif;
-  --font-mono: "Space Mono", monospace;
+  --font-heading: "Fredoka", sans-serif;
+  --font-body: "Nunito", sans-serif;
   
-  --spacing-section: clamp(4rem, 10vw, 8rem);
-  --spacing-container: clamp(1rem, 5vw, 4rem);
+  --shadow-clay: 8px 8px 16px rgba(0,0,0,0.05), inset -8px -8px 12px rgba(249,115,22,0.1);
+  --shadow-clay-hover: 12px 12px 24px rgba(0,0,0,0.08), inset -4px -4px 8px rgba(249,115,22,0.15);
+  
+  --shadow-clay-sm: 4px 4px 8px rgba(0,0,0,0.04), inset -4px -4px 6px rgba(249,115,22,0.08);
+  --shadow-clay-sm-hover: 6px 6px 12px rgba(0,0,0,0.06), inset -2px -2px 4px rgba(249,115,22,0.1);
 }
 
 @layer base {
   :root {
-    --background: var(--color-sand);
-    --foreground: var(--color-ink);
+    --background: var(--color-background);
+    --foreground: var(--color-text);
   }
 
   /* Smooth scroll */
@@ -29,24 +31,17 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    @apply font-body antialiased selection:bg-roast selection:text-sand;
-    /* Custom noise texture overlay to create organic feel */
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+    @apply font-body antialiased selection:bg-primary selection:text-white;
   }
 
   /* Typography utilities mapped directly */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-medium tracking-tight;
+    @apply font-heading tracking-wide;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-  
-  /* Glass effect for navigation and panels */
-  .glass {
-    @apply bg-sand/80 backdrop-blur-md border border-ink/5;
   }
 }
